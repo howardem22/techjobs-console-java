@@ -15,6 +15,7 @@ public class TechJobs {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
+        columnChoices.put("name", "Name");
         columnChoices.put("core competency", "Skill");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
@@ -118,6 +119,9 @@ public class TechJobs {
             System.out.println("******");
         }
 
+        if (someJobs.size() == 0) {
+            System.out.println("Sorry, there are no jobs.");
+        }
 
     }
 }
