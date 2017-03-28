@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -85,9 +86,23 @@ public class JobData {
         return jobs;
     }
 
-    /**
-     * public static ArrayList<HashMap<String, String>> findByValue(){}
-     */
+
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        loadData();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String,String> job : allJobs) {
+            Collection<String> jobValues = job.values();
+
+            for (String v : jobValues) {
+                if (v.contains(value)) {
+                    jobs.add(job);
+                    break;
+                }
+            }
+        }
+        return jobs;
+    }
 
 
     /**
@@ -130,5 +145,6 @@ public class JobData {
             e.printStackTrace();
         }
     }
+
 
 }
